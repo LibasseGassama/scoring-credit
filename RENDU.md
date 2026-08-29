@@ -5,7 +5,7 @@
 **Établissement :** UAHB – Faculté des Sciences et Techniques, Département STIC
 **Enseignant :** Nassour Abdelmahamoud
 **Étudiants (binôme) :** Amadou Diallo, Libasse Gassama
-**Date de rendu :** ____ / 08 / 2026
+**Date de rendu :** 29 / 08 / 2026
 
 ---
 

@@ -1,7 +1,7 @@
 # RENDU — TP n°1 : Du prototype au modèle servi
 
-Étudiant : ____________________
-Date : ____________________
+Étudiant : Libasse Gassama & Amadou Diallo
+Date : 29-08-2026
 
 ## 1. Dépôt Git — Projet structuré, versionné, avec un test qui passe
 
@@ -40,4 +40,4 @@ Capture d'écran de la requête `curl` (ou Postman/Swagger `/docs`) et de sa ré
 
 ---
 
-Lien du dépôt : ____________________
+Lien du dépôt : https://github.com/LibasseGassama/scoring-credit.git

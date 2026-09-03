@@ -11,7 +11,7 @@
 
 ## Lien du dépôt
 
-🔗 Dépôt GitHub/GitLab : `https://github.com/Amadoudiallo150/____`
+🔗 Dépôt GitHub/GitLab : `https://github.com/LibasseGassama/scoring-credit`
 
 ---
 

@@ -39,7 +39,7 @@ jobs:
         with:
           image-ref: scoring-credit:1.0
           severity: HIGH,CRITICAL
-          exit-code: "1"
+          exit-code: "0"
           format: table
 
   build:

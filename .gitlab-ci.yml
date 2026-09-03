@@ -5,7 +5,8 @@ test:
   image: python:3.11-slim
   script:
     - pip install poetry
-    - poetry install --no-root --no-interaction
+    - poetry lock --no-update  # ← AJOUTEZ CETTE LIGNE
+    - poetry install
     - poetry run pytest -v
 
 scan:

@@ -20,7 +20,7 @@ jobs:
       - name: Installer Poetry et les dépendances
         run: |
           pip install poetry
-          poetry lock  # ← Utilisez simplement poetry lock
+          poetry lock
           poetry install
       - name: Lancer les tests
         run: poetry run pytest -v
@@ -30,6 +30,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Créer le répertoire et le modèle factice
+        run: |
+          mkdir -p models
+          if [ ! -f models/modele.pkl ]; then
+            echo "Création d'un modèle factice pour le build"
+            python -c "
+          import pickle
+          dummy_model = {
+              'version': '1.0',
+              'type': 'dummy_classifier',
+              'data': 'placeholder'
+          }
+          with open('models/modele.pkl', 'wb') as f:
+              pickle.dump(dummy_model, f)
+          "
+          fi
       - name: Construire l'image pour le scan
         run: docker build -t scoring-credit:1.0 .
       - name: Scanner l'image avec Trivy
@@ -44,6 +60,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Créer le répertoire et le modèle factice
+        run: |
+          mkdir -p models
+          if [ ! -f models/modele.pkl ]; then
+            echo "Création d'un modèle factice pour le build"
+            python -c "
+          import pickle
+          dummy_model = {
+              'version': '1.0',
+              'type': 'dummy_classifier',
+              'data': 'placeholder'
+          }
+          with open('models/modele.pkl', 'wb') as f:
+              pickle.dump(dummy_model, f)
+          "
+          fi
       - name: Connexion à GitHub Container Registry
         uses: docker/login-action@v3
         with:

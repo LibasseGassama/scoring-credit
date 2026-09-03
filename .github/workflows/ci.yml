@@ -20,6 +20,7 @@ jobs:
       - name: Installer Poetry et les dépendances
         run: |
           pip install poetry
+          poetry lock --no-update  # ← AJOUTEZ CETTE LIGNE
           poetry install
       - name: Lancer les tests
         run: poetry run pytest -v

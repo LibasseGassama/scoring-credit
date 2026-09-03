@@ -7,14 +7,17 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-pandas = "^2.2"
-scikit-learn = "^1.5"
-mlflow = "^2.16"
-dvc = "^3.55"
 fastapi = "^0.115"
 uvicorn = "^0.30"
 pydantic = "^2.9"
 joblib = "^1.4"
+redis = "^5.0"
+prometheus-client = "^0.20"
+scikit-learn = "^1.5"  # À ajouter
+pandas = "<3"
+mlflow = "^3.15.2"
+dvc = "^3.67.1"
+evidently = "<0.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3"

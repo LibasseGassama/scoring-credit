@@ -1,7 +1,12 @@
-import redis
+﻿import redis
 
-r = redis.Redis(host="localhost", port=6379)
+# Se connecter à Redis sur localhost (depuis votre machine)
+r = redis.Redis(host="localhost", port=6379, decode_responses=True)
 
-# écrire la feature d'un client
+# Écrire la feature
 r.set("client:1234:score_bancaire", 0.71)
-print("Feature écrite dans Redis : client:1234:score_bancaire = 0.71")
+print("✅ Feature écrite : client:1234:score_bancaire = 0.71")
+
+# Vérifier
+value = r.get("client:1234:score_bancaire")
+print(f"✅ Lecture : {value}")

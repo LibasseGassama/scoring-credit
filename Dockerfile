@@ -3,7 +3,10 @@ FROM python:3.11-slim
 WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
-RUN pip install poetry && poetry install --without dev --no-root
+
+RUN pip install poetry && \
+    poetry lock && \
+    poetry install --without dev --no-root
 
 COPY src ./src
 COPY models/modele.pkl ./models/

@@ -1,43 +1,92 @@
-# RENDU — TP n°1 : Du prototype au modèle servi
+# RENDU – TP n°1 : Du prototype au modèle servi
 
-Étudiant : ____________________
-Date : ____________________
-
-## 1. Dépôt Git — Projet structuré, versionné, avec un test qui passe
-
-Capture d'écran du résultat de `poetry run pytest -v` montrant le test au vert.
-
-![test pytest](captures/01_pytest.png)
-
-## 2. Données versionnées — Fichier .dvc pointant vers data/train.csv
-
-Capture d'écran du fichier `data/train.csv.dvc` généré et du commit Git associé.
-
-![dvc add](captures/02_dvc.png)
-
-## 3. Run MLflow — paramètre, métrique et modèle enregistrés
-
-Capture d'écran de l'interface `mlflow ui` (http://localhost:5000) montrant le run avec :
-- le paramètre `modele`
-- la métrique `precision`
-- l'artefact du modèle enregistré
-
-![mlflow ui](captures/03_mlflow.png)
-
-## 4. Image Docker — build et démarrage sans erreur
-
-Capture d'écran du terminal montrant :
-- `docker build -t scoring-credit:1.0 .` qui se termine sans erreur
-- `docker run -p 8000:8000 scoring-credit:1.0` qui démarre le serveur uvicorn
-
-![docker build/run](captures/04_docker.png)
-
-## 5. API fonctionnelle — endpoint /predire testé
-
-Capture d'écran de la requête `curl` (ou Postman/Swagger `/docs`) et de sa réponse JSON.
-
-![curl predire](captures/05_api.png)
+**Module :** MLOps & Déploiement de Modèles
+**Formation :** Master 1, Semestre 1 – AI & Big Data
+**Établissement :** UAHB – Faculté des Sciences et Techniques, Département STIC
+**Enseignant :** Nassour Abdelmahamoud
+**Étudiants (binôme) :** Amadou Diallo, Libasse Gassama
+**Date de rendu :** ____ / 08 / 2026
 
 ---
 
-Lien du dépôt : ____________________
+## Lien du dépôt
+
+🔗 Dépôt GitHub/GitLab : `https://github.com/LibasseGassama/scoring-credit`
+
+---
+
+## Partie 1 – Structuration du projet (Chapitre 2)
+
+**Livrable attendu :** Arborescence conforme + un test pytest qui passe.
+
+- [x] Arborescence `src/`, `data/`, `tests/`, `notebooks/` créée
+- [x] Projet initialisé avec Poetry (`pyproject.toml`)
+- [x] Dépôt Git initialisé, premier commit effectué
+- [x] Test `tests/test_generer_donnees.py` complété et passant
+
+**Capture d'écran – résultat de `poetry run pytest -v` :**
+
+![Test pytest OK](captures/01_pytest.png)
+
+---
+
+## Partie 2 – Versionnement des données et suivi d'expérience (Chapitre 3)
+
+**Livrable attendu :** Fichier `.dvc` versionné + un run MLflow visible dans l'interface.
+
+- [x] `data/train.csv` versionné avec DVC (`data/train.csv.dvc` commité)
+- [x] Script `src/entrainer.py` complété (paramètre, métrique, modèle loggés)
+- [x] Run visible dans l'interface MLflow
+
+**Capture d'écran – fichier `.dvc` et commit Git :**
+
+![Versionnement DVC](captures/02_dvc.png)
+
+**Capture d'écran – run MLflow (paramètre, métrique, modèle) :**
+
+![Run MLflow](captures/03_mlflow.png)
+
+---
+
+## Partie 3 – Conteneurisation du modèle (Chapitre 4)
+
+**Livrable attendu :** Image Docker qui se construit et démarre sans erreur.
+
+- [x] `Dockerfile` complété
+- [x] Image construite avec succès (`docker build`)
+- [x] Conteneur démarré sans erreur (`docker run`)
+
+**Capture d'écran – build et run Docker :**
+
+![Build Docker](captures/04_docker.png)
+
+---
+
+## Partie 4 – Service du modèle via une API (Chapitre 5)
+
+**Livrable attendu :** Endpoint `/predire` fonctionnel, testé avec au moins une requête.
+
+- [x] Schéma Pydantic `DonneesClient` complété
+- [x] Route `/predire` complétée dans `src/main.py`
+- [x] API lancée avec Uvicorn
+- [x] Requête testée avec succès sur `/predire` (via Swagger UI)
+
+**Capture d'écran – requête et réponse JSON de l'API :**
+
+![Test API /predire](captures/05_api.png)
+
+---
+
+## Récapitulatif des livrables finaux
+
+| Livrable | Statut | Preuve |
+|---|---|---|
+| Dépôt Git structuré, versionné, avec test qui passe | ☑ | Partie 1 |
+| Données versionnées (`.dvc`) | ☑ | Partie 2 |
+| Run MLflow (paramètre, métrique, modèle) | ☑ | Partie 2 |
+| Image Docker fonctionnelle | ☑ | Partie 3 |
+| API `/predire` testée | ☑ | Partie 4 |
+
+---
+
+*Dépôt maintenu public jusqu'à la correction et la réception des notes.*

@@ -1,92 +1,43 @@
-# RENDU – TP n°1 : Du prototype au modèle servi
+# RENDU — TP n°1 : Du prototype au modèle servi
 
-**Module :** MLOps & Déploiement de Modèles
-**Formation :** Master 1, Semestre 1 – AI & Big Data
-**Établissement :** UAHB – Faculté des Sciences et Techniques, Département STIC
-**Enseignant :** Nassour Abdelmahamoud
-**Étudiants (binôme) :** Amadou Diallo, Libasse Gassama
-**Date de rendu :** 29 / 08 / 2026
+Étudiant : ____________________
+Date : ____________________
 
----
+## 1. Dépôt Git — Projet structuré, versionné, avec un test qui passe
 
-## Lien du dépôt
+Capture d'écran du résultat de `poetry run pytest -v` montrant le test au vert.
 
-🔗 Dépôt GitHub/GitLab : `https://github.com/LibasseGassama/scoring-credit`
+![test pytest](captures/01_pytest.png)
 
----
+## 2. Données versionnées — Fichier .dvc pointant vers data/train.csv
 
-## Partie 1 – Structuration du projet (Chapitre 2)
+Capture d'écran du fichier `data/train.csv.dvc` généré et du commit Git associé.
 
-**Livrable attendu :** Arborescence conforme + un test pytest qui passe.
+![dvc add](captures/02_dvc.png)
 
-- [x] Arborescence `src/`, `data/`, `tests/`, `notebooks/` créée
-- [x] Projet initialisé avec Poetry (`pyproject.toml`)
-- [x] Dépôt Git initialisé, premier commit effectué
-- [x] Test `tests/test_generer_donnees.py` complété et passant
+## 3. Run MLflow — paramètre, métrique et modèle enregistrés
 
-**Capture d'écran – résultat de `poetry run pytest -v` :**
+Capture d'écran de l'interface `mlflow ui` (http://localhost:5000) montrant le run avec :
+- le paramètre `modele`
+- la métrique `precision`
+- l'artefact du modèle enregistré
 
-![Test pytest OK](captures/01_pytest.png)
+![mlflow ui](captures/03_mlflow.png)
 
----
+## 4. Image Docker — build et démarrage sans erreur
 
-## Partie 2 – Versionnement des données et suivi d'expérience (Chapitre 3)
+Capture d'écran du terminal montrant :
+- `docker build -t scoring-credit:1.0 .` qui se termine sans erreur
+- `docker run -p 8000:8000 scoring-credit:1.0` qui démarre le serveur uvicorn
 
-**Livrable attendu :** Fichier `.dvc` versionné + un run MLflow visible dans l'interface.
+![docker build/run](captures/04_docker.png)
 
-- [x] `data/train.csv` versionné avec DVC (`data/train.csv.dvc` commité)
-- [x] Script `src/entrainer.py` complété (paramètre, métrique, modèle loggés)
-- [x] Run visible dans l'interface MLflow
+## 5. API fonctionnelle — endpoint /predire testé
 
-**Capture d'écran – fichier `.dvc` et commit Git :**
+Capture d'écran de la requête `curl` (ou Postman/Swagger `/docs`) et de sa réponse JSON.
 
-![Versionnement DVC](captures/02_dvc.png)
-
-**Capture d'écran – run MLflow (paramètre, métrique, modèle) :**
-
-![Run MLflow](captures/03_mlflow.png)
+![curl predire](captures/05_api.png)
 
 ---
 
-## Partie 3 – Conteneurisation du modèle (Chapitre 4)
-
-**Livrable attendu :** Image Docker qui se construit et démarre sans erreur.
-
-- [x] `Dockerfile` complété
-- [x] Image construite avec succès (`docker build`)
-- [x] Conteneur démarré sans erreur (`docker run`)
-
-**Capture d'écran – build et run Docker :**
-
-![Build Docker](captures/04_docker.png)
-
----
-
-## Partie 4 – Service du modèle via une API (Chapitre 5)
-
-**Livrable attendu :** Endpoint `/predire` fonctionnel, testé avec au moins une requête.
-
-- [x] Schéma Pydantic `DonneesClient` complété
-- [x] Route `/predire` complétée dans `src/main.py`
-- [x] API lancée avec Uvicorn
-- [x] Requête testée avec succès sur `/predire` (via Swagger UI)
-
-**Capture d'écran – requête et réponse JSON de l'API :**
-
-![Test API /predire](captures/05_api.png)
-
----
-
-## Récapitulatif des livrables finaux
-
-| Livrable | Statut | Preuve |
-|---|---|---|
-| Dépôt Git structuré, versionné, avec test qui passe | ☑ | Partie 1 |
-| Données versionnées (`.dvc`) | ☑ | Partie 2 |
-| Run MLflow (paramètre, métrique, modèle) | ☑ | Partie 2 |
-| Image Docker fonctionnelle | ☑ | Partie 3 |
-| API `/predire` testée | ☑ | Partie 4 |
-
----
-
-*Dépôt public .*
+Lien du dépôt : ____________________

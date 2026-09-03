@@ -1,0 +1,23 @@
+stages: [test, scan, build]
+
+test:
+  stage: test
+  image: python:3.11-slim
+  script:
+    - pip install poetry
+    - poetry install
+    - poetry run pytest -v
+
+scan:
+  stage: scan
+  image: aquasec/trivy:latest
+  script:
+    - trivy image --severity HIGH,CRITICAL --exit-code 1 scoring-credit:1.0
+
+build:
+  stage: build
+  image: docker:24
+  services: [docker:24-dind]
+  script:
+    - docker build -t scoring-credit:1.0 .
+    - docker push scoring-credit:1.0

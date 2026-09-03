@@ -13,4 +13,4 @@ def generer_donnees():
 if __name__ == "__main__":
     os.makedirs("data", exist_ok=True)
     generer_donnees().to_csv("data/train.csv", index=False)
-    print("Fichier data/train.csv genere avec succes !")
+    print("Fichier data/train.csv généré avec succès !")

@@ -2,7 +2,7 @@
 name = "scoring-credit"
 version = "0.1.0"
 description = "TP1 MLOps - Du prototype au modele servi"
-authors = ["Libas Amadou"]
+authors = ["Libas"]
 package-mode = false
 
 [tool.poetry.dependencies]
@@ -15,6 +15,9 @@ fastapi = "^0.115"
 uvicorn = "^0.30"
 pydantic = "^2.9"
 joblib = "^1.4"
+redis = "^5.0"
+prometheus-client = "^0.20"
+evidently = "^0.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3"

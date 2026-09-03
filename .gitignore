@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+mlruns/
+mlartifacts/
+data/train.csv
+models/*.pkl
+.venv/
+*.egg-info/
+rapport_derive.html
